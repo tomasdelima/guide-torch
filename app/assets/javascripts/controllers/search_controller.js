@@ -1,4 +1,4 @@
-app.controller('searchController', function ($scope, $http) {
+app.controller('searchController', ['$scope', '$http', function ($scope, $http) {
   $scope.executeQuery = function () {
     if ($scope.query) {
       $http({
@@ -13,4 +13,4 @@ app.controller('searchController', function ($scope, $http) {
       $scope.documents = []
     }
   }
-})
+}])
