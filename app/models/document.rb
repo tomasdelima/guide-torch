@@ -1,5 +1,6 @@
 class Document
   include Mongoid::Document
+  searchkick
 
   before_validation :configure_tags
 

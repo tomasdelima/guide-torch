@@ -16,6 +16,7 @@ gem 'mongoid'
 gem 'devise'
 gem 'rails_admin'
 gem 'angularjs-rails'
+gem 'searchkick'
 
 group :development, :test do
   gem 'byebug'

@@ -3,12 +3,7 @@ class SearchController < ApplicationController
   end
 
   def search
-    result = Document.where({
-      body: /.*#{params[:query]}.*/,
-      # author: /.*#{params[:query]}.*/,
-      # category: /.*#{params[:query]}.*/,
-      # title: /.*#{params[:query]}.*/,
-    })
+    result = Document.search(params['query'])
     render json: {documents: result}
   end
 end
