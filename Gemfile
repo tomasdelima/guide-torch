@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'mongoid'
 gem 'devise'
 gem 'rails_admin'
+gem 'angularjs-rails'
 
 group :development, :test do
   gem 'byebug'

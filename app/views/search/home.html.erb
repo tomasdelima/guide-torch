@@ -1,1 +1,8 @@
-<input type="text">
+<div ng-controller="searchController">
+  <input type="text" ng-model="query" ng-change="executeQuery()">
+  <ol>
+    <li ng-repeat="document in documents">
+      {{document.title}}
+    </li>
+  </ol>
+</div>
