@@ -1,5 +1,18 @@
 <div ng-controller="searchController">
-  <input type="text" ng-model="query" ng-change="executeQuery()">
+  <div layout="column" ng-cloak class="md-inline-form">
+    <md-content layout-padding>
+      <div>
+        <form name="userForm">
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Faça sua busca</label>
+              <input ng-model="query" ng-change="executeQuery()">
+            </md-input-container>
+          </div>
+        </form>
+      </div>
+    </md-content>
+  </div>
   <ol>
     <li ng-repeat="document in documents">
       {{document.title}}

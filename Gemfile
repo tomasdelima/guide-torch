@@ -17,6 +17,7 @@ gem 'devise'
 gem 'rails_admin'
 gem 'angularjs-rails'
 gem 'searchkick'
+gem 'rails-angular-material'
 
 group :development, :test do
   gem 'byebug'
