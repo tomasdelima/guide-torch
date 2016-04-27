@@ -130,12 +130,26 @@ development:
     # environment. The Mongoid logger will be set to the Rails logger
     # otherwise.(default: :info)
     # log_level: :info
+
+
 test:
   clients:
     default:
       database: guide_torch_test
       hosts:
         - localhost:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
+
+
+production:
+  clients:
+    default:
+      database: guide_torch_production
+      hosts:
+        - <%= ENV['MONGOHQ_URL'] %>
       options:
         read:
           mode: :primary
