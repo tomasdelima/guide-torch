@@ -149,7 +149,7 @@ production:
     default:
       database: guide_torch_production
       hosts:
-        - <%= ENV['MONGOHQ_URL'] %>
+        - <%= ENV['MONGODB_URI'] %>
       options:
         read:
           mode: :primary
