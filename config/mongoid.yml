@@ -147,10 +147,11 @@ test:
 production:
   clients:
     default:
-      database: guide_torch_production
-      hosts:
-        - <%= ENV['MONGODB_URI'] %>
+      uri: <%= ENV['MONGODB_URI'] %>
       options:
-        read:
-          mode: :primary
-        max_pool_size: 1
+        consistency: :strong
+        max_retries: 30
+        retry_interval: 1
+        timeout: 15
+        safe: true
+        refresh_interval: 10

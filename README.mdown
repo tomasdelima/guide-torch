@@ -2,9 +2,10 @@
 
 Brasilian Bahá'í app designed to help the search for holy texts and institutional guides, as well as personal documents.
 
-## Tools used
+## Important tools used
 
 - Ruby on Rails
+- RailsAdmin
 - AngularJS
 - Angular-material
 - Elasticsearch
@@ -26,7 +27,7 @@ Install elasticsearch in the desired folder:
 
 > tar -xvf elasticsearch-2.3.2.tar.gz
 
-Don't forget to add the `elasticsearch` command to your session (either through `alias`, `source` or `PATH-...`). Visit https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html for more informations
+Don't forget to add the `elasticsearch` command to your session (either through `alias`, `source` or `PATH=...`). Visit https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html for more informations.
 
 Run the rails server:
 
