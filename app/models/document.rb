@@ -1,6 +1,6 @@
 class Document
   include Mongoid::Document
-  searchkick
+  searchkick highlight: [:title, :body], language: "Portuguese"
 
   before_validation :configure_tags
 
@@ -12,6 +12,6 @@ class Document
   field :tags
 
   def configure_tags
-    tags = self.tags.split(',')
+    tags = self.tags.try(:split, ',')
   end
 end

@@ -18,4 +18,5 @@
 //= require angular-material
 //= require angular-aria
 //= require angular-messages
+//= require angular-sanitize
 //= require_tree .

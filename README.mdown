@@ -16,6 +16,7 @@ Install dependencies:
 > bundle
 > npm install angular-aria
 > npm install angular-messages
+> npm install angular-sanitize
 
 Download elasticsearch:
 

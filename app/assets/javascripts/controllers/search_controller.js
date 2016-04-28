@@ -13,4 +13,11 @@ app.controller('searchController', ['$scope', '$http', function ($scope, $http) 
       $scope.documents = []
     }
   }
+  $scope.toggleDocument = function (document) {
+    var originalValue = document.expanded
+    $scope.documents.forEach(function (doc, index) {
+      $scope.documents[index].expanded = false
+    })
+    document.expanded = !originalValue
+  }
 }])
