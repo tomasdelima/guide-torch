@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root 'search#home'
   get 'search' => 'search#search'
+  post 'login' => 'home#login'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

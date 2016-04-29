@@ -8,7 +8,21 @@
 </head>
 <body ng-app="guideTorch">
 
-<%= yield %>
+  <md-content ng-controller="loginController">
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <md-button ng-href="/#">Guide Torch</md-button>
+        <span flex></span>
+        <% if current_user %>
+          <md-button class="md-primary md-raised" ng-href="/admin">Admin</md-button>
+        <% else %>
+          <md-button class="md-primary md-raised" ng-click="showLoginDialog($event)">Login</md-button>
+        <% end %>
+      </div>
+    </md-toolbar>
+  </md-content>
+
+  <%= yield %>
 
 </body>
 </html>
