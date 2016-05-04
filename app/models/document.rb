@@ -6,10 +6,17 @@ class Document
 
   belongs_to :author
   belongs_to :category
+  has_and_belongs_to_many :shared_users, class_name: 'User'
 
   field :title, type: String
   field :body, type: String
   field :tags
+  field :global, type: Boolean
+  field :owner_id
+
+  def owner
+    User.find(owner_id)
+  end
 
   def configure_tags
     tags = self.tags.try(:split, ',')

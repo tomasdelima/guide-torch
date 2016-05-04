@@ -16,6 +16,18 @@ RailsAdmin.config do |config|
     navigation_label 'Configurações'
     label 'Documento'
     exclude_fields :_id
+
+    edit do
+      field :owner_id do
+        view_helper :hidden_field
+        label false
+        help ""
+
+        default_value do
+          bindings[:view]._current_user._id
+        end
+      end
+    end
   end
 
   config.model 'Author' do

@@ -5,6 +5,8 @@ class User
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_and_belongs_to_many :shared_documents, class_name: 'Document'
+
   ## Database authenticatable
   field :encrypted_password, type: String, default: ""
 

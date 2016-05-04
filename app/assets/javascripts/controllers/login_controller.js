@@ -23,7 +23,7 @@ app.controller('loginController', ['$scope', '$http', '$mdDialog', '$mdMedia', f
       data: $scope.user
     }).then(function (response) {
       if(response.data.status == '200') {
-        window.location = '/admin'
+        location.reload()
       } else {
         $scope.warningMessage = 'Erro de autenticação, tente novamente'
       }
