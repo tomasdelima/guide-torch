@@ -5,7 +5,7 @@ class HomeController < ApplicationController
       sign_in user
       render json: {status: 200}
     else
-      render json: {status: 401}
+      render text: '401: Unauthorized', status: 401
     end
   end
 end

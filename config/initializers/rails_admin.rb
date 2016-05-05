@@ -1,5 +1,6 @@
 RailsAdmin.config do |config|
   config.authenticate_with do
+    render text: '401: Unauthorized', status: 401 unless current_user.try(:admin?)
     warden.authenticate! scope: :user
   end
   config.current_user_method(&:current_user)

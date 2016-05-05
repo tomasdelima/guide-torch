@@ -36,4 +36,5 @@ class User
   # field :locked_at,       type: Time
   field :name, type: String
   field :email, type: String
+  field :admin, type: Boolean, default: false
 end

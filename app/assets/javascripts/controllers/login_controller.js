@@ -8,9 +8,7 @@ app.controller('loginController', ['$scope', '$http', '$mdDialog', '$mdMedia', f
       fullscreen: useFullScreen
     })
     .then(function(answer) {
-      $scope.status = 'You said the information was "' + answer + '".'
     }, function() {
-      $scope.status = 'You cancelled the dialog.'
     })
   }
 
@@ -22,12 +20,20 @@ app.controller('loginController', ['$scope', '$http', '$mdDialog', '$mdMedia', f
       url: '/login',
       data: $scope.user
     }).then(function (response) {
-      if(response.data.status == '200') {
-        location.reload()
-      } else {
+      location.reload()
+    }, function (response) {
+      if(response.data.status == '401') {
         $scope.warningMessage = 'Erro de autenticação, tente novamente'
       }
+    })
+  }
+
+  $scope.logout = function () {
+    $http.delete('/users/sign_out')
+    .then(function (response) {
+      location.reload()
     }, function (response) {
+      location.reload()
     })
   }
 }])

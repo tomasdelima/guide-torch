@@ -8,16 +8,15 @@
 </head>
 <body ng-app="guideTorch">
 
-  <md-content ng-controller="loginController">
+  <md-content ng-controller="loginController" ng-init="user = {name: '<%=current_user.try(:name)%>', id: '<%=current_user.try(:_id)%>', admin: <%=!!current_user.try(:admin)%>}">
     <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
         <md-button ng-href="/#">Guide Torch</md-button>
         <span flex></span>
-        <% if current_user %>
-          <md-button class="md-primary md-raised" ng-href="/admin">Admin</md-button>
-        <% else %>
-          <md-button class="md-primary md-raised" ng-click="showLoginDialog($event)">Login</md-button>
-        <% end %>
+        <span>{{user.name}}</span>
+        <md-button ng-show="user.admin" class="md-primary md-raised" ng-href="/admin">Admin</md-button>
+        <md-button ng-hide="<%=!!current_user%>" class="md-primary md-raised" ng-click="showLoginDialog($event)">Login</md-button>
+        <md-button ng-hide="<%=!current_user%>" class="md-primary md-raised" ng-click="logout()">Logout</md-button>
       </div>
     </md-toolbar>
   </md-content>
