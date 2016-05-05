@@ -18,11 +18,12 @@
 
       <md-content>
         <md-list flex>
+          <md-list-item class="backdrop" ng-class="{hidden: !expanded}"></md-list-item>
           <md-list-item class="md-3-line" ng-repeat="document in documents" ng-init="document.expanded = false" ng-click="toggleDocument(document)" ng-class="{expanded: document.expanded}">
             <div class="md-list-item-text">
               <h3 ng-bind-html="document.title"></h3>
               <p ng-bind-html="document.expanded ? document.body : document.body_highlighted"></p>
-              <p ng-bind-html="document.author"></p>
+              <p class="author">&ndash; {{document.author}}</p>
             </div>
           </md-list-item>
           <md-divider ></md-divider>

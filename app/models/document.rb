@@ -21,4 +21,14 @@ class Document
   def configure_tags
     tags = self.tags.try(:split, ',')
   end
+
+  def as_json
+    {
+      id: _id,
+      title: title,
+      tags: tags,
+      body: body,
+      author: author.name,
+    }
+  end
 end

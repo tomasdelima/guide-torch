@@ -1,5 +1,7 @@
 app.controller('searchController', ['$scope', '$http', function ($scope, $http) {
   $scope.executeQuery = function () {
+    $scope.expanded = false
+
     if ($scope.query) {
       $http({
         method: 'GET',
@@ -18,11 +20,6 @@ app.controller('searchController', ['$scope', '$http', function ($scope, $http) 
     $scope.documents.forEach(function (d, index) {
       $scope.documents[index].expanded = false
     })
-    doc.expanded = !originalValue
-    if (doc.expanded) {
-      setTimeout(function () {
-        window.scrollTo(0, document.getElementsByClassName("expanded")[0].offsetTop + 200)
-      }, 50)
-    }
+    $scope.expanded = doc.expanded = !originalValue
   }
 }])
