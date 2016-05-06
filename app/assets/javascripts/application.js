@@ -19,4 +19,5 @@
 //= require angular-aria
 //= require angular-messages
 //= require angular-sanitize
+//= require angular-clipboard
 //= require_tree .

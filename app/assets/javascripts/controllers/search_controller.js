@@ -1,4 +1,4 @@
-app.controller('searchController', ['$scope', '$http', function ($scope, $http) {
+app.controller('searchController', ['$scope', '$http', '$mdToast', 'clipboard', function ($scope, $http, $mdToast, clipboard) {
   $scope.executeQuery = function () {
     $scope.expanded = false
 
@@ -15,11 +15,20 @@ app.controller('searchController', ['$scope', '$http', function ($scope, $http) 
       $scope.documents = []
     }
   }
+
   $scope.toggleDocument = function (doc) {
     var originalValue = doc.expanded
     $scope.documents.forEach(function (d, index) {
       $scope.documents[index].expanded = false
     })
     $scope.expanded = doc.expanded = !originalValue
+  }
+
+  $scope.copyToClipboard = function ($event) {
+    clipboard.copyText($event.currentTarget.parentElement.innerText.slice(7));
+    $mdToast.show(
+      $mdToast.simple().textContent('Copiado').hideDelay(3000)
+    )
+    $event.stopPropagation()
   }
 }])

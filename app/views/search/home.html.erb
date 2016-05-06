@@ -10,7 +10,7 @@
     </md-content>
   </div>
 
-  <div ng-cloak layout-gt-sm="row" layout="column" ng-if="documents[0]">
+  <div ng-cloak layout-gt-sm="row" layout="column" ng-if="documents.length > 0">
     <div flex-gt-sm="50" flex>
       <md-toolbar layout="row" class="md-hue-3">
         <div class="md-toolbar-tools">{{documents.length}} documentos encontrados (clique para expandir)</div>
@@ -19,8 +19,10 @@
       <md-content>
         <md-list flex>
           <md-list-item class="backdrop" ng-class="{hidden: !expanded}"></md-list-item>
+
           <md-list-item class="md-3-line" ng-repeat="document in documents" ng-init="document.expanded = false" ng-click="toggleDocument(document)" ng-class="{expanded: document.expanded}">
             <div class="md-list-item-text">
+              <md-button id="copy-to-clipboard" ng-click="copyToClipboard($event)" ng-class="{hidden: !document.expanded}">Copiar</md-button>
               <h3 ng-bind-html="document.title"></h3>
               <p ng-bind-html="document.expanded ? document.body : document.body_highlighted"></p>
               <p class="author">&ndash; {{document.author}}</p>

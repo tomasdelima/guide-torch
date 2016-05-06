@@ -20,6 +20,10 @@
         height: 100%;
       }
 
+      #copy-to-clipboard {
+        float: right;
+      }
+
       h3 { padding: 20px 0; }
     }
 
@@ -30,9 +34,6 @@
       width: 100%;
       padding: 0;
 
-      &.hidden {
-        display: none;
-      }
     }
 
     .md-list-item-text .author {

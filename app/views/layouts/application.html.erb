@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body ng-app="guideTorch">
+<body ng-app="guideTorch" style="overflow-y: scroll !important;">
 
   <md-content ng-controller="loginController" ng-init="user = {name: '<%=current_user.try(:name)%>', id: '<%=current_user.try(:_id)%>', admin: <%=!!current_user.try(:admin)%>}">
     <md-toolbar class="md-hue-2">

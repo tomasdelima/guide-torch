@@ -22,6 +22,12 @@ def create_authors
   end
 end
 
+def create_categories
+  (rand(10)+10).times do |n|
+    Category.create(name: "Categoria #{n}")
+  end
+end
+
 def create_documents
   (rand(100)+100).times do |d|
     global = rand > 0.5
@@ -31,13 +37,16 @@ def create_documents
       body: random_text,
       tags: "",
       owner_id: User.all.sample._id.to_s,
+      category: Category.all.sample,
       global: global
     )
   end
 end
 
 Author.destroy_all
+Category.destroy_all
 Document.destroy_all
 
 create_authors
+create_categories
 create_documents

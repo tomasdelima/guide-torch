@@ -18,10 +18,6 @@ class Document
     User.find(owner_id)
   end
 
-  def configure_tags
-    tags = self.tags.try(:split, ',')
-  end
-
   def as_json
     {
       id: _id,
@@ -31,4 +27,10 @@ class Document
       author: author.name,
     }
   end
+
+  protected
+
+    def configure_tags
+      tags = self.tags.try(:split, ',')
+    end
 end
