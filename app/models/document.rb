@@ -24,7 +24,8 @@ class Document
       title: title,
       tags: tags,
       body: body,
-      author: author.name,
+      author: author.try(:name),
+      category: category.try(:name),
     }
   end
 
