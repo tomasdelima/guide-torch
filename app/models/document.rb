@@ -14,6 +14,8 @@ class Document
   field :global, type: Boolean
   field :owner_id
 
+  validates :author, :body, presence: true
+
   def owner
     User.find(owner_id)
   end
